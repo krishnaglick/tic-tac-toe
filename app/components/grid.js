@@ -9,7 +9,7 @@ function Grid({ state: { grid, player: { activePlayer } }, actions }) {
   const gridKeys = Object.keys(grid);
   const jsxGrid = _.map(gridKeys, (gridKey) => {
     const [x,y] = gridKey.split(',');
-    const { type } = grid[gridKey];
+    const { type, value } = grid[gridKey];
     return (
       <Square
         key={gridKey}
@@ -18,6 +18,7 @@ function Grid({ state: { grid, player: { activePlayer } }, actions }) {
         cellNumber={~~y}
         activePlayer={activePlayer}
         type={type}
+        value={value}
       />
     );
   });
