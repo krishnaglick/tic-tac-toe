@@ -1,30 +1,15 @@
 
 const path = require('path');
 const fs = require('fs');
-const webpack = require('webpack');
 const prebuild = require('pre-build-webpack');
 const sass = require('node-sass');
 
-const APP_DIR = path.resolve(__dirname, './app');
-const blackMagic = require('../redux-black-magic');
-const ignores = new webpack.WatchIgnorePlugin([
-  path.resolve(APP_DIR + '/actions/index.js'),
-  path.resolve(APP_DIR + '/reducers/index.js')
-]);
-
 const plugins = [
-  ignores,
   new prebuild(() => {
     try {
       fs.mkdirSync(path.resolve('./dist'));
     }
     catch(x) {}
-  }),
-  new blackMagic({
-    actionsFolder: path.resolve(APP_DIR + '/actions/'),
-    reducersFolder: path.resolve(APP_DIR + '/reducers/'),
-    actionTemplate: path.resolve(APP_DIR + '/templates/actionTemplate.js'),
-    reducerTemplate: path.resolve(APP_DIR + '/templates/reducerTemplate.js')
   }),
   new prebuild(() => {
     const cpArgs = [

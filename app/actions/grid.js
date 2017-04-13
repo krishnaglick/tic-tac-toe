@@ -1,4 +1,9 @@
 
-export function selectPiece(rowNumber, cellNumber, player, { dispatch, changeTurn }) {
-  return { rowNumber, cellNumber, player };
+export function selectPiece(rowNumber, cellNumber, player) {
+  return {
+    type: 'selectPiece',
+    rowNumber,
+    cellNumber,
+    player
+  };
 }
