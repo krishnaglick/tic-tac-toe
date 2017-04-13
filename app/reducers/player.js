@@ -1,6 +1,5 @@
 
-export function activePlayer(state = { activePlayer: 0 }, action = {}) {
-  console.log('ap called');
+export function changeTurn(state = { activePlayer: 0 }, action = {}) {
   return {
     ...state,
     ...action

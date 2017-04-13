@@ -1,7 +1,7 @@
 
 export function changeTurn(activePlayer) {
+  activePlayer = activePlayer === 0 ? 1 : 0;
   return {
-    type: 'activePlayer',
-    activePlayer: activePlayer ? 0 : 1
+    activePlayer
   };
 }

@@ -10,7 +10,6 @@ import Grid from './components/grid';
 
 class App extends Component {
   render() {
-    console.log('this.props: ', this);
     const state = store.getState();
     actions.dispatch = store.dispatch;
     console.log('App State: ', state);
@@ -27,3 +26,13 @@ const renderApp = () => render(<App />, document.getElementById('app'));
 renderApp();
 //This tripped me up for too long. react/router/redux does this for you.
 store.subscribe(renderApp);
+
+if(`${process.env.MODE}`.toLowerCase() === 'dev') {
+  try {
+    require('./templates/actionTemplate');
+    require('./templates/reducerTemplate');
+    require('./actions/index');
+    require('./reducers/index');
+  }
+  catch(x) {}
+}

@@ -12,10 +12,9 @@ _.forEach(importedActions, (action) => {
       const actionValue = action[key](...args, actions);
       if(typeof actionValue === 'function')
         return actionValue;
-      const type = actionValue.type || key;
       delete actionValue.type;
       return {
-        type,
+        type: key,
         ...actionValue
       };
     };

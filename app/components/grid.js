@@ -5,7 +5,6 @@ import _ from 'lodash';
 import Square from './square';
 
 function Grid({ state: { grid, player: { activePlayer } }, actions }) {
-  console.log(grid);
   const gridKeys = Object.keys(grid);
   const jsxGrid = _.map(gridKeys, (gridKey) => {
     const [x,y] = gridKey.split(',');
