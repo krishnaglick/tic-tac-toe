@@ -1,0 +1,6 @@
+/node_modules/
+/dist/
+/.idea/
+.floo
+.flooignore
+yarn.lock

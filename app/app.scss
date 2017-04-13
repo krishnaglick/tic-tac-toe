@@ -1,0 +1,48 @@
+
+.ticTacToe {
+  /* display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; */
+}
+
+.grid {
+  max-width: 330px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.square, .x, .o {
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.square {
+  background-color: #78bec5;
+
+  h1 {
+    display: none;
+  }
+}
+.square:hover {
+  background-color: #3D4250;
+
+  h1 {
+    display: initial;
+  }
+}
+
+.x {
+  background-color: rgb(220, 104, 90);
+}
+
+.o {
+  background-color: rgb(236, 175, 79);
+}
