@@ -2,7 +2,7 @@
 import React from 'react';
 
 function Scoreboard({ state, actions: { playAgain, dispatch } }) {
-  const { player1WinCount, player2WinCount, gameState, victor } = state.player;
+  const { player1WinCount, player2WinCount, gameState, victor, draws } = state.player;
   return (
     <div>
       <div className='scoreboard'>
@@ -14,6 +14,9 @@ function Scoreboard({ state, actions: { playAgain, dispatch } }) {
         </h3>
         <h3 className='column'>
           Player Two: {player2WinCount}
+        </h3>
+        <h3 className='column'>
+          Draws: {draws}
         </h3>
         <h2 className='victor' style={{display: gameState ? 'initial' : 'none'}}>
         {

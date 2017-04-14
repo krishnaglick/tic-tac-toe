@@ -3,6 +3,7 @@ const initState = {
   activePlayer: 1,
   player1WinCount: 0,
   player2WinCount: 0,
+  draws: 0,
   victor: 0,
   gameState: 0
 };
@@ -31,8 +32,12 @@ exports.victoryCheck = (state, { victory, draw }) => {
     state.player2WinCount += 1;
     state.victor = -1;
   }
-  if(victory !== 0 || draw) {
+  if(victory !== 0) {
     state.gameState = 1;
+  }
+  if(draw) {
+    state.gameState = 1;
+    state.draws += 1;
   }
 
   return state;
