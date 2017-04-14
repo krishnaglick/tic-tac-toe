@@ -1,9 +1,13 @@
 
+* {
+  font-family: 'Lato', sans-serif;
+}
+
 .ticTacToe {
-  /* display: flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
 }
 
 .grid {
@@ -32,7 +36,7 @@
   }
 }
 .square:hover {
-  background-color: #3D4250;
+  opacity: 0.5;
 
   h1 {
     display: initial;
@@ -45,4 +49,42 @@
 
 .o {
   background-color: rgb(236, 175, 79);
+}
+
+.scoreboard {
+  width: 200px;
+  display: flex;
+  margin-left: 30px;
+  flex-wrap: wrap;
+
+  .column {
+    margin: 0;
+    flex-grow: 1;
+    min-width: 50%;
+  }
+
+  .victor {
+    min-width: 100%;
+    flex-grow: 1;
+  }
+
+  /* button styles shameless stolen from this codepen: http://codepen.io/benague/pen/bCkyr */
+  button {
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 12px;
+    text-decoration: none;
+    margin: 5px;
+    color: #fff;
+    background-color: #55acee;
+    box-shadow: 0px 2px 0px 0px #3C93D5;
+  }
+  button:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+  }
+  button:hover {
+    background-color: #6FC6FF;
+  }
 }

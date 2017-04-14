@@ -30,15 +30,17 @@ const plugins = [
 module.exports = {
   entry: './app/app.js',
   output: {
-    path: './dist/',
+    path: path.resolve('./dist/'),
     filename: 'bundle.js'
   },
   plugins,
   module: {
-    rules: [{
-      test: /\.js$/,
-      loader: 'babel-loader',
-      include: [path.resolve(__dirname, './app')]
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        include: [path.resolve(__dirname, './app')]
+      }
+    ]
   }
 };

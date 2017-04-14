@@ -4,22 +4,23 @@ import _ from 'lodash';
 
 import Square from './square';
 
-function Grid({ state: { grid, player: { activePlayer } }, actions }) {
-  const gridKeys = Object.keys(grid);
-  const jsxGrid = _.map(gridKeys, (gridKey) => {
-    const [x,y] = gridKey.split(',');
-    const { type, value } = grid[gridKey];
-    return (
-      <Square
-        key={gridKey}
-        actions={actions}
-        rowNumber={~~x}
-        cellNumber={~~y}
-        activePlayer={activePlayer}
-        type={type}
-        value={value}
-      />
-    );
+function Grid({ state: { grid, player }, actions }) {
+  const jsxGrid = [];
+  _.forEach(grid, (row, x) => {
+    _.forEach(row, (cell, y) => {
+      const { type } = cell;
+      jsxGrid.push(
+        <Square
+          key={`${x},${y}`}
+          actions={actions}
+          grid={grid}
+          rowNumber={x}
+          cellNumber={y}
+          player={player}
+          type={type}
+        />
+      );
+    });
   });
   return (<div className='grid'>{jsxGrid}</div>);
 }

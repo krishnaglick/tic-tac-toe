@@ -7,15 +7,18 @@ import actions from './actions';
 
 import store from './store';
 import Grid from './components/grid';
+import Scoreboard from './components/scoreboard';
 
 class App extends Component {
   render() {
     const state = store.getState();
     actions.dispatch = store.dispatch;
-    console.log('App State: ', state);
     return (
       <Provider store={store}>
-        <Grid {...{ state, actions }} />
+        <div className='ticTacToe'>
+          <Grid {...{ state, actions }} />
+          <Scoreboard {...{ state, actions }} />
+        </div>
       </Provider>
     );
   }
